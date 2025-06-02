@@ -737,13 +737,13 @@ footer {
 @media (max-width: 915px) {
     .hero {
         min-height: calc(100vh - 60px);
-        padding-top: 120px; /* Increased padding for smaller screens */
+        padding-top: 200px; /* Increased padding for smaller screens */
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
         text-align: center;
-        padding: 120px 1rem 2rem; /* Adjusted all padding for consistency */
+        padding: 200px 1rem 2rem; /* Adjusted all padding for consistency */
         background-color: var(--primary-color);
     }
 
