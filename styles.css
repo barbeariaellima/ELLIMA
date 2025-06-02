@@ -19,6 +19,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--primary-color);
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 h1, h2, h3, h4, .logo {
@@ -39,7 +40,7 @@ header {
     position: fixed;
     width: 100%;
     z-index: 1000;
-    padding: 1rem;
+    padding: 2rem 1rem;
     background-color: rgba(26, 26, 26, 0.98);
 }
 
@@ -49,6 +50,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 0; /* Revert to a reasonable vertical padding */
 }
 
 .logo {
@@ -121,6 +123,7 @@ nav {
     text-align: center;
     padding: 0 2rem;
     background-color: var(--primary-color);
+    padding-top: 290px; /* Increased padding further */
 }
 
 .logo-hero {
@@ -721,50 +724,8 @@ footer {
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
-    /* Removed mobile menu specific styles to consolidate in 915px query */
 
-    nav {
-        padding: 1rem;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .subtitle {
-        font-size: 2rem;
-    }
-    
-    .hero p {
-        font-size: 1rem;
-    }
-    
-    .hero br {
-        display: none;
-    }
-
-    .about-container {
-        grid-template-columns: 1fr;
-    }
-
-    .booking-container {
-        grid-template-columns: 1fr;
-    }
-
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .section-description br {
-        display: none;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        padding: 0 1rem;
-    }
-}
+/* Large screens / Default styles go here */
 
 @media (max-width: 1024px) {
     .gallery-grid {
@@ -773,20 +734,28 @@ footer {
     }
 }
 
-@media (max-width: 640px) {
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 @media (max-width: 915px) {
-    .hero-content {
-        padding: 0 1rem;
+    .hero {
+        min-height: calc(100vh - 60px);
+        padding-top: 120px; /* Increased padding for smaller screens */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: center;
+        padding: 120px 1rem 2rem; /* Adjusted all padding for consistency */
+        background-color: var(--primary-color);
     }
 
     .logo-hero {
-        max-width: 300px;
-        margin: 0 auto 2rem;
+        max-width: 250px;
+        margin-bottom: 1.5rem;
+        margin-top: 0;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 400px;
     }
 
     .hero h1 {
@@ -806,13 +775,19 @@ footer {
         font-size: 2rem;
         cursor: pointer;
         z-index: 1001;
-        outline: 2px solid red !important;
+        outline: 2px solid red !important; /* Temporary outline to check visibility */
     }
 
     nav {
         position: relative;
-        padding: 1rem;
+        padding: 0.8rem 1rem;
         z-index: 1000;
+    }
+
+    header {
+        width: 100vw; /* Ensure fixed header is viewport width */
+        left: 0; /* Align fixed header to the left */
+        right: 0; /* Align fixed header to the right */
     }
 
     .nav-links {
@@ -864,24 +839,83 @@ footer {
     .logo-text {
         font-size: 0.9rem;
     }
+
+    .logo-icon {
+        height: 60px;
+    }
+
+    .logo-text .gold,
+    .logo-text .white {
+        font-size: 1.5rem;
+    }
+
+    /* General layout adjustments for <= 915px */
+    .about-container,
+    .booking-container {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-description br,
+    .hero p br {
+        display: none;
+    }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+    /* Gallery grid adjustments for <= 768px */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    /* Further reduce font size for smaller tablets/large phones */
     .hero h1 {
         font-size: 2rem;
     }
 
-    .logo-hero {
-        max-width: 250px;
+    header {
+        width: 100vw; /* Ensure fixed header is viewport width */
+        left: 0; /* Align fixed header to the left */
+        right: 0; /* Align fixed header to the right */
+    }
+}
+
+@media (max-width: 640px) {
+    /* Gallery grid adjustment for <= 640px */
+    .gallery-grid {
+        grid-template-columns: 1fr;
     }
 
-    .hero p br {
-        display: none;
+    header {
+        width: 100vw; /* Ensure fixed header is viewport width */
+        left: 0; /* Align fixed header to the left */
+        right: 0; /* Align fixed header to the right */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Specific adjustments for small phones */
+    .hero h1 {
+        font-size: 1.8rem; /* Even smaller font size for very small screens */
+    }
+
+    .logo-hero {
+        max-width: 200px; /* Further reduce hero logo size */
     }
 
     .cta-button {
         width: 100%;
         text-align: center;
+    }
+
+    header {
+        width: 100vw; /* Ensure fixed header is viewport width */
+        left: 0; /* Align fixed header to the left */
+        right: 0; /* Align fixed header to the right */
     }
 }
 
