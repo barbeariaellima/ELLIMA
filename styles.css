@@ -775,7 +775,7 @@ footer {
         font-size: 2rem;
         cursor: pointer;
         z-index: 1001;
-        outline: 2px solid red !important; /* Temporary outline to check visibility */
+        outline: 2px solid black !important; /* Temporary outline to check visibility */
     }
 
     nav {
