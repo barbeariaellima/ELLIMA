@@ -955,3 +955,20 @@ footer {
 .fade-in {
     animation: fadeIn 0.8s ease-out forwards;
 } 
+.developer-signature {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #ccc;
+    margin-top: 20px;
+}
+
+.developer-signature a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.developer-signature a:hover {
+    color: #fff;
+}
+
